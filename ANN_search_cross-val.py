@@ -1,6 +1,3 @@
-from numpy.core.fromnumeric import shape
-from numpy.lib.financial import rate
-from numpy.lib.function_base import angle
 from sklearn.base import BaseEstimator
 import tensorflow as tf
 from tensorflow import keras
@@ -50,6 +47,12 @@ pelvis_ang_acc_z=file['Pelvis_ang_acc_z']
 grf_x=file['GRF_x']
 grf_y=file['GRF_y']
 grf_z=file['GRF_z']
+hip_flex_m = file['Hip_flex_m']
+hip_abd_m = file['Hip_abd_m']
+hip_rot_m = file['Hip_rot_m']
+knee_flex_m = file['Knee_flex_m']
+ank_flex_m = file['Ank_flex_m']
+ank_abd_m = file['Ank_abd_m']
 
 ankle_x_lis=ankle_x.tolist()
 ankle_y_lis=ankle_y.tolist()
@@ -78,36 +81,54 @@ pelvis_ang_acc_z_lis=pelvis_ang_acc_z.tolist()
 grf_x_lis=grf_x.tolist()
 grf_y_lis=grf_y.tolist()
 grf_z_lis=grf_z.tolist()
+hip_flex_m_lis = hip_flex_m.tolist()
+hip_abd_m_lis = hip_abd_m.tolist()
+hip_rot_m_lis = hip_rot_m.tolist()
+knee_flex_m_lis = knee_flex_m.tolist()
+ank_flex_m_lis = ank_flex_m.tolist()
+ank_abd_m_lis = ank_abd_m.tolist()
 
 matrix=[]
 for i in range(0, 16):
     x_data_full=[]
     y_data_full=[]
     x_data_out=[]
-    y_Xdata_out=[]
-    y_Ydata_out=[]
-    y_Zdata_out=[]
+    #y_Xdata_out=[]
+    #y_Ydata_out=[]
+    #y_Zdata_out=[]
+    y_hip_flex_m_out=[]
+    y_hip_abd_m_out=[]
+    y_hip_rot_m_out=[]
+    y_knee_flex_m_out=[]
+    y_ank_flex_m_out=[]
+    y_ank_abd_m_out=[]
     for j in range(0, 16160):
         if (j<i*1010) or (j>=(i*1010)+1010):
-            x_data_full.append([ankle_x_lis[j], ankle_y_lis[j], ankle_z_lis[j], knee_x_lis[j], knee_y_lis[j], knee_z_lis[j], hip_x_lis[j], hip_y_lis[j], hip_z_lis[j]])
+            x_data_full.append([ankle_x_lis[j], ankle_y_lis[j], ankle_z_lis[j], knee_x_lis[j], knee_y_lis[j], knee_z_lis[j], hip_x_lis[j], hip_y_lis[j], hip_z_lis[j],
                                 #pelvis_x_lis[j], pelvis_y_lis[j], pelvis_z_lis[j],
-                                #pelvis_vel_x_lis[j], pelvis_vel_y_lis[j], pelvis_vel_z_lis[j], 
-                                #pelvis_acc_x_lis[j], pelvis_acc_y_lis[j], pelvis_acc_z_lis[j],
-                                #pelvis_ang_vel_x_lis[j], pelvis_ang_vel_y_lis[j], pelvis_ang_vel_z_lis[j],
-                                #pelvis_ang_acc_x_lis[j], pelvis_ang_acc_y_lis[j], pelvis_ang_acc_z_lis[j]])
-            y_data_full.append([grf_x_lis[j], grf_y_lis[j], grf_z_lis[j]])
+                                pelvis_vel_x_lis[j], pelvis_vel_y_lis[j], pelvis_vel_z_lis[j], 
+                                pelvis_acc_x_lis[j], pelvis_acc_y_lis[j], pelvis_acc_z_lis[j],
+                                pelvis_ang_vel_x_lis[j], pelvis_ang_vel_y_lis[j], pelvis_ang_vel_z_lis[j],
+                                pelvis_ang_acc_x_lis[j], pelvis_ang_acc_y_lis[j], pelvis_ang_acc_z_lis[j]])
+            y_data_full.append([hip_flex_m_lis[j], hip_abd_m_lis[j], hip_rot_m_lis[j], knee_flex_m_lis[j], ank_flex_m_lis[j], ank_abd_m_lis[j]])
 
         if (j>=i*1010) and (j<(i*1010)+1010):
-            x_data_out.append([ankle_x_lis[j], ankle_y_lis[j], ankle_z_lis[j], knee_x_lis[j], knee_y_lis[j], knee_z_lis[j], hip_x_lis[j], hip_y_lis[j], hip_z_lis[j]])
+            x_data_out.append([ankle_x_lis[j], ankle_y_lis[j], ankle_z_lis[j], knee_x_lis[j], knee_y_lis[j], knee_z_lis[j], hip_x_lis[j], hip_y_lis[j], hip_z_lis[j],
                                 #pelvis_x_lis[j], pelvis_y_lis[j], pelvis_z_lis[j],
-                                #pelvis_vel_x_lis[j], pelvis_vel_y_lis[j], pelvis_vel_z_lis[j], 
-                                #pelvis_acc_x_lis[j], pelvis_acc_y_lis[j], pelvis_acc_z_lis[j],
-                                #pelvis_ang_vel_x_lis[j], pelvis_ang_vel_y_lis[j], pelvis_ang_vel_z_lis[j],
-                                #pelvis_ang_acc_x_lis[j], pelvis_ang_acc_y_lis[j], pelvis_ang_acc_z_lis[j]])
+                                pelvis_vel_x_lis[j], pelvis_vel_y_lis[j], pelvis_vel_z_lis[j], 
+                                pelvis_acc_x_lis[j], pelvis_acc_y_lis[j], pelvis_acc_z_lis[j],
+                                pelvis_ang_vel_x_lis[j], pelvis_ang_vel_y_lis[j], pelvis_ang_vel_z_lis[j],
+                                pelvis_ang_acc_x_lis[j], pelvis_ang_acc_y_lis[j], pelvis_ang_acc_z_lis[j]])
 
-            y_Xdata_out.append(grf_x_lis[j])
-            y_Ydata_out.append(grf_y_lis[j])
-            y_Zdata_out.append(grf_z_lis[j])
+            #y_Xdata_out.append(grf_x_lis[j])
+            #y_Ydata_out.append(grf_y_lis[j])
+            #y_Zdata_out.append(grf_z_lis[j])
+            y_hip_flex_m_out.append(hip_flex_m_lis[j])
+            y_hip_abd_m_out.append(hip_abd_m_lis[j])
+            y_hip_rot_m_out.append(hip_rot_m_lis[j])
+            y_knee_flex_m_out.append(knee_flex_m_lis[j])
+            y_ank_flex_m_out.append(ank_flex_m_lis[j])
+            y_ank_abd_m_out.append(ank_abd_m_lis[j])
 
 
     for j in range(0, 15):
@@ -164,7 +185,7 @@ for i in range(0, 16):
         for l in range(n_layers):
             model.add(keras.layers.Dropout(rate=dropout))
             model.add(keras.layers.Dense(neurons, activation='elu', kernel_initializer='he_normal'))
-        model.add(keras.layers.Dense(3))
+        model.add(keras.layers.Dense(6))
         opt = tf.keras.optimizers.Adam(learning_rate=lr_sch)
         model.compile(loss=rmse, optimizer=opt)
         return model
@@ -186,10 +207,10 @@ for i in range(0, 16):
     matrix.append(search.best_params_)
     matrix.append(search.best_score_)
     final_model = search.best_estimator_.model
-    final_model.save('Angle_inputs_'+str(i+1)+'_out'+'.h5')
+    final_model.save('Ang_Vels_Accs_inputs_moments'+str(i+1)+'_out'+'.h5')
 
 matrix = np.array(matrix)
 
-with open(r'C:\Users\juan_\Desktop\Tesis\Grid_Search\\' + 'Angles_Inputs.csv', 'x', newline='') as f:
+with open(r'C:\Users\juan_\Desktop\Tesis\Grid_Search\\' + 'Ang_Vels_Accs_Inputs_Moments.csv', 'x', newline='') as f:
     writer = csv.writer(f)      
     writer.writerows(zip(matrix))
