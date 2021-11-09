@@ -107,18 +107,18 @@ for i in range(0, 16):
             x_data_full.append([ankle_x_lis[j], ankle_y_lis[j], ankle_z_lis[j], knee_x_lis[j], knee_y_lis[j], knee_z_lis[j], hip_x_lis[j], hip_y_lis[j], hip_z_lis[j],
                                 #pelvis_x_lis[j], pelvis_y_lis[j], pelvis_z_lis[j],
                                 pelvis_vel_x_lis[j], pelvis_vel_y_lis[j], pelvis_vel_z_lis[j], 
-                                pelvis_acc_x_lis[j], pelvis_acc_y_lis[j], pelvis_acc_z_lis[j],
-                                pelvis_ang_vel_x_lis[j], pelvis_ang_vel_y_lis[j], pelvis_ang_vel_z_lis[j],
-                                pelvis_ang_acc_x_lis[j], pelvis_ang_acc_y_lis[j], pelvis_ang_acc_z_lis[j]])
+                                #pelvis_acc_x_lis[j], pelvis_acc_y_lis[j], pelvis_acc_z_lis[j],
+                                pelvis_ang_vel_x_lis[j], pelvis_ang_vel_y_lis[j], pelvis_ang_vel_z_lis[j]])
+                                #pelvis_ang_acc_x_lis[j], pelvis_ang_acc_y_lis[j], pelvis_ang_acc_z_lis[j]])
             y_data_full.append([hip_flex_m_lis[j], hip_abd_m_lis[j], hip_rot_m_lis[j], knee_flex_m_lis[j], ank_flex_m_lis[j], ank_abd_m_lis[j]])
 
         if (j>=i*1010) and (j<(i*1010)+1010):
             x_data_out.append([ankle_x_lis[j], ankle_y_lis[j], ankle_z_lis[j], knee_x_lis[j], knee_y_lis[j], knee_z_lis[j], hip_x_lis[j], hip_y_lis[j], hip_z_lis[j],
                                 #pelvis_x_lis[j], pelvis_y_lis[j], pelvis_z_lis[j],
                                 pelvis_vel_x_lis[j], pelvis_vel_y_lis[j], pelvis_vel_z_lis[j], 
-                                pelvis_acc_x_lis[j], pelvis_acc_y_lis[j], pelvis_acc_z_lis[j],
-                                pelvis_ang_vel_x_lis[j], pelvis_ang_vel_y_lis[j], pelvis_ang_vel_z_lis[j],
-                                pelvis_ang_acc_x_lis[j], pelvis_ang_acc_y_lis[j], pelvis_ang_acc_z_lis[j]])
+                                #pelvis_acc_x_lis[j], pelvis_acc_y_lis[j], pelvis_acc_z_lis[j],
+                                pelvis_ang_vel_x_lis[j], pelvis_ang_vel_y_lis[j], pelvis_ang_vel_z_lis[j]])
+                                #pelvis_ang_acc_x_lis[j], pelvis_ang_acc_y_lis[j], pelvis_ang_acc_z_lis[j]])
 
             #y_Xdata_out.append(grf_x_lis[j])
             #y_Ydata_out.append(grf_y_lis[j])
@@ -207,10 +207,10 @@ for i in range(0, 16):
     matrix.append(search.best_params_)
     matrix.append(search.best_score_)
     final_model = search.best_estimator_.model
-    final_model.save('Ang_Vels_Accs_inputs_moments'+str(i+1)+'_out'+'.h5')
+    final_model.save('Ang_Vels_inputs_moments'+str(i+1)+'_out'+'.h5')
 
 matrix = np.array(matrix)
 
-with open(r'C:\Users\juan_\Desktop\Tesis\Grid_Search\\' + 'Ang_Vels_Accs_Inputs_Moments.csv', 'x', newline='') as f:
+with open(r'C:\Users\juan_\Desktop\Tesis\Grid_Search\\' + 'Ang_Vels_Inputs_Moments.csv', 'x', newline='') as f:
     writer = csv.writer(f)      
     writer.writerows(zip(matrix))
