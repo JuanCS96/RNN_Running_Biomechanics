@@ -1,5 +1,4 @@
 from numpy.core.fromnumeric import shape
-from numpy.lib.financial import rate
 from numpy.lib.function_base import angle
 from sklearn.base import BaseEstimator
 import tensorflow as tf
@@ -21,10 +20,13 @@ from keras import backend as K
 from tensorflow.python.keras.callbacks import EarlyStopping
 from tensorflow.python.keras.layers.core import Dropout
 from sklearn.model_selection import train_test_split
+import socket
 
-
-
-os.chdir(r'C:\Users\juan_\Desktop\Tesis\Tesis_2')
+hostname=socket.gethostname();
+if hostname=='PC64926':
+    os.chdir(r'D:\JuanCordero\NN_GRF_M_prediction_running')
+else:
+    os.chdir(r'C:\Users\juan_\Desktop\Tesis\Tesis_2')
 filename='ANN_Inputs_1_16.xlsx'
 sh_na='ANN_Inputs_1_16'
 file=pd.read_excel(filename, sheet_name=sh_na)
@@ -297,7 +299,12 @@ for i in range(0, 16):
 
 matrix = np.array(matrix)
 
-with open(r'C:\Users\juan_\Desktop\Tesis\Tesis_2\GridSearch\\' + 'Ang_Accs_Inputs_Forces.csv', 'x', newline='') as f:
+if hostname=='PC64926':
+    outfolder=r'D:\JuanCordero\NN_GRF_M_prediction_running\Grid_Search\\';
+else:
+    outfolder=r'C:\Users\juan_\Desktop\Tesis\Tesis_2\GridSearch\\';
+
+with open(outfolder + 'Ang_Accs_Inputs_Forces.csv', 'x', newline='') as f:
     writer = csv.writer(f)      
     writer.writerows(zip(matrix))
 
