@@ -40,24 +40,6 @@ knee_z=file['Knee_z']
 hip_x=file['Hip_x']
 hip_y=file['Hip_y']
 hip_z=file['Hip_z']
-ankle_lineal_vel_x=file['Ankle_Lineal_Vel_x']
-ankle_lineal_vel_y=file['Ankle_Lineal_Vel_y']
-ankle_lineal_vel_z=file['Ankle_Lineal_Vel_z']
-knee_lineal_vel_x=file['Knee_Lineal_Vel_x']
-knee_lineal_vel_y=file['Knee_Lineal_Vel_y']
-knee_lineal_vel_z=file['Knee_Lineal_Vel_z']
-hip_lineal_vel_x=file['Hip_Lineal_Vel_x']
-hip_lineal_vel_y=file['Hip_Lineal_Vel_y']
-hip_lineal_vel_z=file['Hip_Lineal_Vel_z']
-ankle_lineal_acc_x=file['Ankle_Lineal_Acc_x']
-ankle_lineal_acc_y=file['Ankle_Lineal_Acc_y']
-ankle_lineal_acc_z=file['Ankle_Lineal_Acc_z']
-knee_lineal_acc_x=file['Knee_Lineal_Acc_x']
-knee_lineal_acc_y=file['Knee_Lineal_Acc_y']
-knee_lineal_acc_z=file['Knee_Lineal_Acc_z']
-hip_lineal_acc_x=file['Hip_Lineal_Acc_x']
-hip_lineal_acc_y=file['Hip_Lineal_Acc_y']
-hip_lineal_acc_z=file['Hip_Lineal_Acc_z']
 ankle_angular_vel_x=file['Ankle_Angular_Vel_x']
 ankle_angular_vel_y=file['Ankle_Angular_Vel_y']
 ankle_angular_vel_z=file['Ankle_Angular_Vel_z']
@@ -101,24 +83,6 @@ knee_z=knee_z.tolist()
 hip_x=hip_x.tolist()
 hip_y=hip_y.tolist()
 hip_z=hip_z.tolist()
-ankle_lineal_vel_x=ankle_lineal_vel_x.tolist()
-ankle_lineal_vel_y=ankle_lineal_vel_y.tolist()
-ankle_lineal_vel_z=ankle_lineal_vel_z.tolist()
-knee_lineal_vel_x=knee_lineal_vel_x.tolist()
-knee_lineal_vel_y=knee_lineal_vel_y.tolist()
-knee_lineal_vel_z=knee_lineal_vel_z.tolist()
-hip_lineal_vel_x=hip_lineal_vel_x.tolist()
-hip_lineal_vel_y=hip_lineal_vel_y.tolist()
-hip_lineal_vel_z=hip_lineal_vel_z.tolist()
-ankle_lineal_acc_x=ankle_lineal_acc_x.tolist()
-ankle_lineal_acc_y=ankle_lineal_acc_y.tolist()
-ankle_lineal_acc_z=ankle_lineal_acc_z.tolist()
-knee_lineal_acc_x=knee_lineal_acc_x.tolist()
-knee_lineal_acc_y=knee_lineal_acc_y.tolist()
-knee_lineal_acc_z=knee_lineal_acc_z.tolist()
-hip_lineal_acc_x=hip_lineal_acc_x.tolist()
-hip_lineal_acc_y=hip_lineal_acc_y.tolist()
-hip_lineal_acc_z=hip_lineal_acc_z.tolist()
 ankle_angular_vel_x=ankle_angular_vel_x.tolist()
 ankle_angular_vel_y=ankle_angular_vel_y.tolist()
 ankle_angular_vel_z=ankle_angular_vel_z.tolist()
@@ -170,42 +134,30 @@ for i in range(0, 16):
     for j in range(0, 16160):
         if (j<i*1010) or (j>=(i*1010)+1010):
             x_data_full.append([ankle_x[j], ankle_y[j], ankle_z[j], knee_x[j], knee_y[j], knee_z[j], hip_x[j], hip_y[j], hip_z[j],
-                                #ankle_lineal_vel_x[j], ankle_lineal_vel_y[j], ankle_lineal_vel_z[j],
-                                ankle_lineal_acc_x[j], ankle_lineal_acc_y[j], ankle_lineal_acc_z[j], 
-                                #ankle_angular_vel_x[j], ankle_angular_vel_y[j], ankle_angular_vel_z[j],
+                                ankle_angular_vel_x[j], ankle_angular_vel_y[j], ankle_angular_vel_z[j],
                                 ankle_angular_acc_x[j], ankle_angular_acc_y[j], ankle_angular_acc_z[j],
-                                #knee_lineal_vel_x[j], knee_lineal_vel_y[j], knee_lineal_vel_z[j],
-                                knee_lineal_acc_x[j], knee_lineal_acc_y[j], knee_lineal_acc_z[j], 
-                                #knee_angular_vel_x[j], knee_angular_vel_y[j], knee_angular_vel_z[j],
-                                knee_angular_acc_x[j], knee_angular_acc_y[j], knee_angular_acc_z[j],
-                                #hip_lineal_vel_x[j], hip_lineal_vel_y[j], hip_lineal_vel_z[j],
-                                hip_lineal_acc_x[j], hip_lineal_acc_y[j], hip_lineal_acc_z[j], 
-                                #hip_angular_vel_x[j], hip_angular_vel_y[j], hip_angular_vel_z[j],
+                                knee_angular_vel_x[j], knee_angular_vel_y[j], knee_angular_vel_z[j],
+                                knee_angular_acc_x[j], knee_angular_acc_y[j], knee_angular_acc_z[j], 
+                                hip_angular_vel_x[j], hip_angular_vel_y[j], hip_angular_vel_z[j],
                                 hip_angular_acc_x[j], hip_angular_acc_y[j], hip_angular_acc_z[j],
-                                #pelvis_lineal_vel_x[j], pelvis_lineal_vel_y[j], pelvis_lineal_vel_z[j],
+                                pelvis_lineal_vel_x[j], pelvis_lineal_vel_y[j], pelvis_lineal_vel_z[j],
                                 pelvis_lineal_acc_x[j], pelvis_lineal_acc_y[j], pelvis_lineal_acc_z[j], 
-                                #pelvis_angular_vel_x[j], pelvis_angular_vel_y[j], pelvis_angular_vel_z[j],
+                                pelvis_angular_vel_x[j], pelvis_angular_vel_y[j], pelvis_angular_vel_z[j],
                                 pelvis_angular_acc_x[j], pelvis_angular_acc_y[j], pelvis_angular_acc_z[j]])
             y_data_full.append([grf_x[j], grf_y[j], grf_z[j]])
             #y_data_full.append([hip_flex_m[j], hip_abd_m[j], hip_rot_m[j], knee_flex_m[j], ank_flex_m[j], ank_abd_m[j]])
 
         if (j>=i*1010) and (j<(i*1010)+1010):
             x_data_out.append([ankle_x[j], ankle_y[j], ankle_z[j], knee_x[j], knee_y[j], knee_z[j], hip_x[j], hip_y[j], hip_z[j],
-                                #ankle_lineal_vel_x[j], ankle_lineal_vel_y[j], ankle_lineal_vel_z[j],
-                                ankle_lineal_acc_x[j], ankle_lineal_acc_y[j], ankle_lineal_acc_z[j], 
-                                #ankle_angular_vel_x[j], ankle_angular_vel_y[j], ankle_angular_vel_z[j],
+                                ankle_angular_vel_x[j], ankle_angular_vel_y[j], ankle_angular_vel_z[j],
                                 ankle_angular_acc_x[j], ankle_angular_acc_y[j], ankle_angular_acc_z[j],
-                                #knee_lineal_vel_x[j], knee_lineal_vel_y[j], knee_lineal_vel_z[j],
-                                knee_lineal_acc_x[j], knee_lineal_acc_y[j], knee_lineal_acc_z[j], 
-                                #knee_angular_vel_x[j], knee_angular_vel_y[j], knee_angular_vel_z[j],
-                                knee_angular_acc_x[j], knee_angular_acc_y[j], knee_angular_acc_z[j],
-                                #hip_lineal_vel_x[j], hip_lineal_vel_y[j], hip_lineal_vel_z[j],
-                                hip_lineal_acc_x[j], hip_lineal_acc_y[j], hip_lineal_acc_z[j], 
-                                #hip_angular_vel_x[j], hip_angular_vel_y[j], hip_angular_vel_z[j],
+                                knee_angular_vel_x[j], knee_angular_vel_y[j], knee_angular_vel_z[j],
+                                knee_angular_acc_x[j], knee_angular_acc_y[j], knee_angular_acc_z[j], 
+                                hip_angular_vel_x[j], hip_angular_vel_y[j], hip_angular_vel_z[j],
                                 hip_angular_acc_x[j], hip_angular_acc_y[j], hip_angular_acc_z[j],
-                                #pelvis_lineal_vel_x[j], pelvis_lineal_vel_y[j], pelvis_lineal_vel_z[j],
+                                pelvis_lineal_vel_x[j], pelvis_lineal_vel_y[j], pelvis_lineal_vel_z[j],
                                 pelvis_lineal_acc_x[j], pelvis_lineal_acc_y[j], pelvis_lineal_acc_z[j], 
-                                #pelvis_angular_vel_x[j], pelvis_angular_vel_y[j], pelvis_angular_vel_z[j],
+                                pelvis_angular_vel_x[j], pelvis_angular_vel_y[j], pelvis_angular_vel_z[j],
                                 pelvis_angular_acc_x[j], pelvis_angular_acc_y[j], pelvis_angular_acc_z[j]])
 
             y_Xdata_out.append(grf_x[j])
@@ -295,7 +247,7 @@ for i in range(0, 16):
     matrix.append(search.best_params_)
     matrix.append(search.best_score_)
     final_model = search.best_estimator_.model
-    final_model.save('Ang_Accs_Inputs_Forces'+str(i+1)+'_out'+'.h5')
+    final_model.save('Ang_Vels_Accs_Inputs_Forces'+str(i+1)+'_out'+'.h5')
 
 matrix = np.array(matrix)
  
@@ -304,7 +256,7 @@ if hostname=='PC64926':
 else:
     outfolder=r'C:\Users\juan_\Desktop\Tesis\Tesis_2\GridSearch\\';
 
-with open(outfolder + 'Ang_Accs_Inputs_Forces.csv', 'x', newline='') as f:
+with open(outfolder + 'Ang_Vels_Accs_Inputs_Forces.csv', 'x', newline='') as f:
     writer = csv.writer(f)      
     writer.writerows(zip(matrix))
 
