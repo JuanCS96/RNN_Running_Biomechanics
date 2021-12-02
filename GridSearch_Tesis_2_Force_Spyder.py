@@ -134,30 +134,30 @@ for i in range(0, 16):
     for j in range(0, 16160):
         if (j<i*1010) or (j>=(i*1010)+1010):
             x_data_full.append([ankle_x[j], ankle_y[j], ankle_z[j], knee_x[j], knee_y[j], knee_z[j], hip_x[j], hip_y[j], hip_z[j],
-                                ankle_angular_vel_x[j], ankle_angular_vel_y[j], ankle_angular_vel_z[j],
+                                #ankle_angular_vel_x[j], ankle_angular_vel_y[j], ankle_angular_vel_z[j],
                                 ankle_angular_acc_x[j], ankle_angular_acc_y[j], ankle_angular_acc_z[j],
-                                knee_angular_vel_x[j], knee_angular_vel_y[j], knee_angular_vel_z[j],
+                                #knee_angular_vel_x[j], knee_angular_vel_y[j], knee_angular_vel_z[j],
                                 knee_angular_acc_x[j], knee_angular_acc_y[j], knee_angular_acc_z[j], 
-                                hip_angular_vel_x[j], hip_angular_vel_y[j], hip_angular_vel_z[j],
+                                #hip_angular_vel_x[j], hip_angular_vel_y[j], hip_angular_vel_z[j],
                                 hip_angular_acc_x[j], hip_angular_acc_y[j], hip_angular_acc_z[j],
-                                pelvis_lineal_vel_x[j], pelvis_lineal_vel_y[j], pelvis_lineal_vel_z[j],
+                                #pelvis_lineal_vel_x[j], pelvis_lineal_vel_y[j], pelvis_lineal_vel_z[j],
                                 pelvis_lineal_acc_x[j], pelvis_lineal_acc_y[j], pelvis_lineal_acc_z[j], 
-                                pelvis_angular_vel_x[j], pelvis_angular_vel_y[j], pelvis_angular_vel_z[j],
+                                #pelvis_angular_vel_x[j], pelvis_angular_vel_y[j], pelvis_angular_vel_z[j],
                                 pelvis_angular_acc_x[j], pelvis_angular_acc_y[j], pelvis_angular_acc_z[j]])
             y_data_full.append([grf_x[j], grf_y[j], grf_z[j]])
             #y_data_full.append([hip_flex_m[j], hip_abd_m[j], hip_rot_m[j], knee_flex_m[j], ank_flex_m[j], ank_abd_m[j]])
 
         if (j>=i*1010) and (j<(i*1010)+1010):
             x_data_out.append([ankle_x[j], ankle_y[j], ankle_z[j], knee_x[j], knee_y[j], knee_z[j], hip_x[j], hip_y[j], hip_z[j],
-                                ankle_angular_vel_x[j], ankle_angular_vel_y[j], ankle_angular_vel_z[j],
+                                #ankle_angular_vel_x[j], ankle_angular_vel_y[j], ankle_angular_vel_z[j],
                                 ankle_angular_acc_x[j], ankle_angular_acc_y[j], ankle_angular_acc_z[j],
-                                knee_angular_vel_x[j], knee_angular_vel_y[j], knee_angular_vel_z[j],
+                                #knee_angular_vel_x[j], knee_angular_vel_y[j], knee_angular_vel_z[j],
                                 knee_angular_acc_x[j], knee_angular_acc_y[j], knee_angular_acc_z[j], 
-                                hip_angular_vel_x[j], hip_angular_vel_y[j], hip_angular_vel_z[j],
+                                #hip_angular_vel_x[j], hip_angular_vel_y[j], hip_angular_vel_z[j],
                                 hip_angular_acc_x[j], hip_angular_acc_y[j], hip_angular_acc_z[j],
-                                pelvis_lineal_vel_x[j], pelvis_lineal_vel_y[j], pelvis_lineal_vel_z[j],
+                                #pelvis_lineal_vel_x[j], pelvis_lineal_vel_y[j], pelvis_lineal_vel_z[j],
                                 pelvis_lineal_acc_x[j], pelvis_lineal_acc_y[j], pelvis_lineal_acc_z[j], 
-                                pelvis_angular_vel_x[j], pelvis_angular_vel_y[j], pelvis_angular_vel_z[j],
+                                #pelvis_angular_vel_x[j], pelvis_angular_vel_y[j], pelvis_angular_vel_z[j],
                                 pelvis_angular_acc_x[j], pelvis_angular_acc_y[j], pelvis_angular_acc_z[j]])
 
             y_Xdata_out.append(grf_x[j])
@@ -247,7 +247,7 @@ for i in range(0, 16):
     matrix.append(search.best_params_)
     matrix.append(search.best_score_)
     final_model = search.best_estimator_.model
-    final_model.save('Ang_Vels_Accs_Inputs_Forces'+str(i+1)+'_out'+'.h5')
+    final_model.save('Ang_Accs_Inputs_Forces'+str(i+1)+'_out'+'.h5')
 
 matrix = np.array(matrix)
  
@@ -256,7 +256,7 @@ if hostname=='PC64926':
 else:
     outfolder=r'C:\Users\juan_\Desktop\Tesis\Tesis_2\GridSearch\\';
 
-with open(outfolder + 'Ang_Vels_Accs_Inputs_Forces.csv', 'x', newline='') as f:
+with open(outfolder + 'Ang_Accs_Inputs_Forces.csv', 'x', newline='') as f:
     writer = csv.writer(f)      
     writer.writerows(zip(matrix))
 
