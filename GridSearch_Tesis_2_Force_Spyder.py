@@ -73,6 +73,11 @@ pelvis_angular_acc_z=file['Pelvis_Angular_Acc_z']
 grf_x=file['GRF_x_15']
 grf_y=file['GRF_y_15']
 grf_z=file['GRF_z_15']
+hip_flex_m=file['Hip_flex_m']
+hip_abd_m=file['Hip_abd_m']
+hip_rot_m=file['Hip_rot_m']
+knee_flex_m=file['Knee_flex_m']
+ank_flex_m=file['Ank_flex_m']
 
 ankle_x=ankle_x.tolist()
 ankle_y=ankle_y.tolist()
@@ -116,6 +121,11 @@ pelvis_angular_acc_z=pelvis_angular_acc_z.tolist()
 grf_x=grf_x.tolist()
 grf_y=grf_y.tolist()
 grf_z=grf_z.tolist()
+hip_flex_m=hip_flex_m.tolist()
+hip_abd_m=hip_abd_m.tolist()
+hip_rot_m=hip_rot_m.tolist()
+knee_flex_m=knee_flex_m.tolist()
+ank_flex_m=ank_flex_m.tolist()
 
 matrix=[]
 for i in range(0, 16):
