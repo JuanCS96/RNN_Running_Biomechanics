@@ -27,7 +27,7 @@ import socket
 
 hostname=socket.gethostname();
 if hostname=='PC64926':
-    os.chdir(r'D:\JuanCordero\NN_GRF_M_prediction_running')
+    os.chdir(r'D:\JuanCordero\NN_GRF_M_prediction_running\exp_moments')
 else:
     os.chdir(r'C:\Users\juan_\Desktop\Tesis\Tesis_2\Tesis_3\Moments')
 
