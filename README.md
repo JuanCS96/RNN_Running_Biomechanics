@@ -2,7 +2,7 @@
 
 <p align="center">
 
-Recurrent Neural Networks to predict gorund reaction forces and lower limb joint moments from kinematic data in running.
+Recurrent Neural Networks to predict ground reaction forces and lower limb joint moments from kinematic data in running.
 
 ## Requirements
 
