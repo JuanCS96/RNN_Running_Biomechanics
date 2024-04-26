@@ -15,7 +15,7 @@ Recurrent Neural Networks to predict gorund reaction forces and lower limb joint
 
 ## Instructions
 
-- Prepare the input data. Input data are compose for the hip, knee and ankle flexion and hip abduction and rotation joint angles. Input data should be time normalized and scaled about the maximum joint angle value.
+- Prepare the input data. Input data are compose for the hip, knee and ankle flexion and hip abduction and rotation joint angles. Input data should be time normalized (101 data points) and scaled about the maximum joint angle value.
 - Input data can be storage in a .csv file with one kinematic input variable per column. 
 - Load the appropiate RNN to predict the desired kinetic variable.
 
